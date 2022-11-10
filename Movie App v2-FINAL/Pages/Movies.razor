@@ -1,0 +1,92 @@
+@page "/movies"
+@inject MovieApp.MovieAppService movieAppService
+
+<div class="row-layout movies-container">
+    <div class="column-layout group">
+        <h5 class="content">
+            Movie Premieres
+        </h5>
+        <div class="row-layout group_1">
+            <div class="column-layout group_2">
+                <div class="column-layout group_3">
+                    <h5 class="h5_1">
+                        MoviePlex Metropolis
+                    </h5>
+                    <IgbButton class="button button_1" movies-scope>
+                        SHOW SCHEDULE
+                        <IgbRipple></IgbRipple>
+                    </IgbButton>
+                </div>
+            </div>
+        </div>
+        <IgbTabs class="tabs" movies-scope>
+            <IgbTabPanel class="row-layout tab-item-content" movies-scope></IgbTabPanel>
+            <IgbTab Selected="true">
+                <span class="material-icons">info</span>
+                Label
+            </IgbTab>
+            <IgbTabPanel class="row-layout tab-item-content" movies-scope></IgbTabPanel>
+            <IgbTab>
+                <span class="material-icons">info</span>
+                Label
+            </IgbTab>
+        </IgbTabs>
+        <div class="row-layout group_4">
+            @foreach (var item in movieAppNowPlaying)
+            {
+                <IgbCard Outlined="true" class="card" movies-scope>
+                    <IgbCardMedia class="media-content" movies-scope>
+                        <img src="@item.MoviePoster" class="image" />
+                    </IgbCardMedia>
+                    <IgbCardHeader>
+                        <h3 slot="title">
+                            @item.Name
+                        </h3>
+                        <h5 slot="subtitle">
+                            @item.Genre
+                        </h5>
+                    </IgbCardHeader>
+                    <IgbCardContent class="body-content" movies-scope>
+                        <p class="typography__body-1 content">
+                            @item.Description
+                        </p>
+                    </IgbCardContent>
+                    <IgbCardActions class="actions-content" movies-scope>
+                        <IgbButton Variant="ButtonVariant.Flat" class="button button_2" movies-scope>
+                            Button
+                            <IgbRipple></IgbRipple>
+                        </IgbButton>
+                        <IgbIconButton Variant="IconButtonVariant.Flat" class="icon-button" movies-scope>
+                            <span class="material-icons">
+                                favorite
+                            </span>
+                            <IgbRipple></IgbRipple>
+                        </IgbIconButton>
+                        <IgbIconButton Variant="IconButtonVariant.Flat" class="icon-button" movies-scope>
+                            <span class="material-icons">
+                                bookmark
+                            </span>
+                            <IgbRipple></IgbRipple>
+                        </IgbIconButton>
+                        <IgbIconButton Variant="IconButtonVariant.Flat" class="icon-button" movies-scope>
+                            <span class="material-icons">
+                                share
+                            </span>
+                            <IgbRipple></IgbRipple>
+                        </IgbIconButton>
+                    </IgbCardActions>
+                </IgbCard>
+            }
+        </div>
+    </div>
+    <div class="column-layout group_5"></div>
+</div>
+
+@code {
+    private MovieApp.NowPlayingType[] movieAppNowPlaying = Array.Empty<MovieApp.NowPlayingType>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        movieAppNowPlaying = await this.movieAppService.GetNowPlaying() ?? movieAppNowPlaying;
+    }
+}

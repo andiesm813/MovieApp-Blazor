@@ -1,0 +1,112 @@
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<div class="row-layout movie-app-container">
+    <IgbNavDrawer Position="NavDrawerPosition.Relative" @ref="NavDrawer" class="nav-drawer" movie-app-scope>
+        <IgbNavDrawerItem @onclick="@(e => Navigate("movies"))">
+            <span slot="icon">
+                <span class="material-icons icon">
+                    movie
+                </span>
+                <IgbRipple></IgbRipple>
+            </span>
+            <div slot="content">Movies</div>
+        </IgbNavDrawerItem>
+        <IgbNavDrawerItem @onclick="@(e => Navigate("movie-complex"))">
+            <span slot="icon">
+                <span class="material-icons icon">
+                    location_on
+                </span>
+                <IgbRipple></IgbRipple>
+            </span>
+            <div slot="content">Theatres</div>
+        </IgbNavDrawerItem>
+        <IgbNavDrawerItem @onclick="@(e => Navigate("my-purchases"))">
+            <span slot="icon">
+                <span class="material-icons icon">
+                    shopping_cart
+                </span>
+                <IgbRipple></IgbRipple>
+            </span>
+            <div slot="content">My Purchases</div>
+        </IgbNavDrawerItem>
+        <IgbNavDrawerItem>
+            <span slot="icon">
+                <span class="material-icons icon">
+                    local_offer
+                </span>
+                <IgbRipple></IgbRipple>
+            </span>
+            <div slot="content">Promos</div>
+        </IgbNavDrawerItem>
+        <IgbNavDrawerItem>
+            <span slot="icon">
+                <span class="material-icons icon">
+                    help
+                </span>
+                <IgbRipple></IgbRipple>
+            </span>
+            <div slot="content">Help &amp; Support</div>
+        </IgbNavDrawerItem>
+        <IgbNavDrawerItem>
+            <span slot="icon">
+                <span class="material-icons icon">
+                    chat_bubble
+                </span>
+                <IgbRipple></IgbRipple>
+            </span>
+            <div slot="content">Contact Us</div>
+        </IgbNavDrawerItem>
+    </IgbNavDrawer>
+    <div class="column-layout group">
+        <div class="row-layout header">
+            <div class="row-layout group_1">
+                <IgbIconButton Variant="IconButtonVariant.Flat" @onclick="@(e => NavDrawer?.Toggle())" class="icon-button" movie-app-scope>
+                    <span class="material-icons">
+                        menu
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </IgbIconButton>
+                <p class="typography__subtitle-1 text">
+                    MOVIE APP
+                </p>
+            </div>
+            <div class="row-layout group_2">
+                <IgbIconButton Variant="IconButtonVariant.Flat" class="icon-button_1" movie-app-scope>
+                    <span class="material-icons">
+                        search
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </IgbIconButton>
+                <IgbIconButton Variant="IconButtonVariant.Flat" class="icon-button_1" movie-app-scope>
+                    <span class="material-icons">
+                        favorite
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </IgbIconButton>
+                <IgbAvatar Src="https://d3cg6cexo8t5ug.cloudfront.net/avatars/avatar8.png" Shape="AvatarShape.Circle" @onclick="@(e => Dropdown?.Toggle(Avatar))" @ref="Avatar" class="avatar" movie-app-scope></IgbAvatar>
+                <IgbDropdown @ref="Dropdown" class="dropdown" movie-app-scope>
+                    <IgbDropdownItem>
+                        My Profile
+                    </IgbDropdownItem>
+                    <IgbDropdownItem>
+                        Logout
+                    </IgbDropdownItem>
+                </IgbDropdown>
+            </div>
+        </div>
+        <div class="view-container">
+            @Body
+        </div>
+    </div>
+</div>
+
+@code {
+    private IgbNavDrawer? NavDrawer;
+    private IgbAvatar? Avatar;
+    private IgbDropdown? Dropdown;
+    private void Navigate(string path)
+    {
+        NavigationManager.NavigateTo(path);
+    }
+}
