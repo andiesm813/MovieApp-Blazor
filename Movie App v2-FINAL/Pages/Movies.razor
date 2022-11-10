@@ -20,7 +20,55 @@
             </div>
         </div>
         <IgbTabs class="tabs" movies-scope>
-            <IgbTabPanel class="row-layout tab-item-content" movies-scope></IgbTabPanel>
+            <IgbTabPanel class="row-layout tab-item-content" movies-scope>
+                <div class="row-layout group_4">
+                    @foreach (var item in movieAppNowPlaying)
+                    {
+                        <IgbCard Outlined="true" class="card" movies-scope>
+                            <IgbCardMedia class="media-content" movies-scope>
+                                <img src="@item.MoviePoster" class="image" />
+                            </IgbCardMedia>
+                            <IgbCardHeader>
+                                <h3 slot="title">
+                                    @item.Name
+                                </h3>
+                                <h5 slot="subtitle">
+                                    @item.Genre
+                                </h5>
+                            </IgbCardHeader>
+                            <IgbCardContent class="body-content" movies-scope>
+                                <p class="typography__body-1 content">
+                                    @item.Description
+                                </p>
+                            </IgbCardContent>
+                            <IgbCardActions class="actions-content" movies-scope>
+                                <IgbButton Variant="ButtonVariant.Flat" class="user-input user-input_2" movies-scope>
+                                    Button
+                                    <IgbRipple></IgbRipple>
+                                </IgbButton>
+                                <IgbIconButton Variant="IconButtonVariant.Flat" class="icon-button" movies-scope>
+                                    <span class="material-icons">
+                                        favorite
+                                    </span>
+                                    <IgbRipple></IgbRipple>
+                                </IgbIconButton>
+                                <IgbIconButton Variant="IconButtonVariant.Flat" class="icon-button" movies-scope>
+                                    <span class="material-icons">
+                                        bookmark
+                                    </span>
+                                    <IgbRipple></IgbRipple>
+                                </IgbIconButton>
+                                <IgbIconButton Variant="IconButtonVariant.Flat" class="icon-button" movies-scope>
+                                    <span class="material-icons">
+                                        share
+                                    </span>
+                                    <IgbRipple></IgbRipple>
+                                </IgbIconButton>
+                            </IgbCardActions>
+                        </IgbCard>
+                    }
+                </div>
+            </IgbTabPanel>
             <IgbTab Selected="true">
                 <span class="material-icons">info</span>
                 Label
@@ -52,7 +100,7 @@
                         </p>
                     </IgbCardContent>
                     <IgbCardActions class="actions-content" movies-scope>
-                        <IgbButton Variant="ButtonVariant.Flat" class="user-input user-input_2" movies-scope>
+                        <IgbButton Variant="ButtonVariant.Flat" class="user-input user-input_3" movies-scope>
                             Button
                             <IgbRipple></IgbRipple>
                         </IgbButton>
@@ -88,7 +136,7 @@
             <span class="user-input">Select not yet available in Blazor</span>
             <IgbDatePicker Label="Date" class="date-picker" movies-scope></IgbDatePicker>
             <span class="select">Select not yet available in Blazor</span>
-            <IgbButton class="user-input user-input_3" movies-scope>
+            <IgbButton class="user-input user-input_4" movies-scope>
                 GET TICKETS NOW
                 <IgbRipple></IgbRipple>
             </IgbButton>

@@ -202,6 +202,9 @@
     color: hsla(var(--ig-primary-400));
 }
 .user-input_3::part(base) {
+    color: hsla(var(--ig-primary-400));
+}
+.user-input_4::part(base) {
     color: white;
     background-color: hsla(var(--ig-primary-500));
 }
