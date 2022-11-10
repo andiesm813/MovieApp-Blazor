@@ -79,6 +79,7 @@
     flex-shrink: 0;
 }
 .group_5 {
+    background-color: #0E050F;
     justify-content: flex-start;
     align-items: stretch;
     align-content: flex-start;
@@ -88,8 +89,33 @@
     min-width: 370px;
     min-height: 50px;
     max-width: 370px;
-    flex-grow: 1;
-    flex-basis: 0;
+    flex-shrink: 0;
+}
+.buy-tickets {
+    background-color: #19091B;
+    border-color: #361439;
+    border-width: 4px 0px 0px;
+    border-style: solid;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    gap: 16px;
+    margin: 0.0px 0.0px 32px;
+    padding: 24px;
+    flex-shrink: 0;
+}
+.theatres-near-you {
+    background-color: #19091B;
+    border-color: #361439;
+    border-width: 4px 0px 0px;
+    border-style: solid;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    gap: 24px;
+    margin: 0.0px;
+    padding: 24.0px 0.0px;
+    flex-shrink: 0;
 }
 .content {
     height: max-content;
@@ -103,6 +129,28 @@
 }
 .image {
     height: 100%;
+}
+.title {
+    margin: 0.0px 0.0px 16px;
+    padding: 0.0px;
+    width: max-content;
+    height: max-content;
+}
+.icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+.text {
+    margin: 0 0 0 24px;
+    height: max-content;
+    min-width: min-content;
+}
+.avatar {
+    --background: none;
+}
+.avatar::part(base) {
+    background-color: hsla(var(--ig-success-500));
 }
 .tab-item-content {
     justify-content: flex-start;
@@ -128,14 +176,39 @@
 .icon-button::part(base) {
     color: hsla(var(--ig-primary-400));
 }
-.button {
+.user-input {
     height: max-content;
     min-width: min-content;
 }
-.button_1::part(base) {
+.date-picker {
+    height: max-content;
+    min-width: 120px;
+}
+.select {
+    margin: 0 0 16px;
+    height: max-content;
+    min-width: min-content;
+}
+.button {
+    margin: 0 24px;
+    height: max-content;
+    min-width: min-content;
+}
+.user-input_1::part(base) {
     color: white;
     background-color: hsla(var(--ig-primary-500));
 }
-.button_2::part(base) {
+.user-input_2::part(base) {
     color: hsla(var(--ig-primary-400));
+}
+.user-input_3::part(base) {
+    color: white;
+    background-color: hsla(var(--ig-primary-500));
+}
+.button::part(base) {
+    color: white;
+    background-color: hsla(var(--ig-primary-500));
+}
+.list {
+    height: max-content;
 }

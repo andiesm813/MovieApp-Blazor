@@ -12,7 +12,7 @@
                     <h5 class="h5_1">
                         MoviePlex Metropolis
                     </h5>
-                    <IgbButton class="button button_1" movies-scope>
+                    <IgbButton class="user-input user-input_1" movies-scope>
                         SHOW SCHEDULE
                         <IgbRipple></IgbRipple>
                     </IgbButton>
@@ -52,7 +52,7 @@
                         </p>
                     </IgbCardContent>
                     <IgbCardActions class="actions-content" movies-scope>
-                        <IgbButton Variant="ButtonVariant.Flat" class="button button_2" movies-scope>
+                        <IgbButton Variant="ButtonVariant.Flat" class="user-input user-input_2" movies-scope>
                             Button
                             <IgbRipple></IgbRipple>
                         </IgbButton>
@@ -79,14 +79,51 @@
             }
         </div>
     </div>
-    <div class="column-layout group_5"></div>
+    <div class="column-layout group_5">
+        <div class="column-layout buy-tickets">
+            <p class="typography__subtitle-2 title">
+                BUY TICKETS
+            </p>
+            <span class="user-input">Select not yet available in Blazor</span>
+            <span class="user-input">Select not yet available in Blazor</span>
+            <IgbDatePicker Label="Date" class="date-picker" movies-scope></IgbDatePicker>
+            <span class="select">Select not yet available in Blazor</span>
+            <IgbButton class="user-input user-input_3" movies-scope>
+                GET TICKETS NOW
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+        <div class="column-layout theatres-near-you">
+            <p class="typography__subtitle-2 text">
+                THEATRES NEAR YOU
+            </p>
+            <IgbList class="list" movies-scope>
+                @foreach (var item in movieAppTheatresNearYou)
+                {
+                    <IgbListItem>
+                        <div slot="start">
+                            <IgbAvatar Initials="@item.Initials" Shape="AvatarShape.Circle" class="avatar" movies-scope></IgbAvatar>
+                        </div>
+                        <div slot="title">@item.Theatre</div>
+                        <div slot="subtitle">@item.Address</div>
+                    </IgbListItem>
+                }
+            </IgbList>
+            <IgbButton class="button" movies-scope>
+                Change Location
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+    </div>
 </div>
 
 @code {
     private MovieApp.NowPlayingType[] movieAppNowPlaying = Array.Empty<MovieApp.NowPlayingType>();
+    private MovieApp.TheatresNearYouType[] movieAppTheatresNearYou = Array.Empty<MovieApp.TheatresNearYouType>();
 
     protected override async Task OnInitializedAsync()
     {
         movieAppNowPlaying = await this.movieAppService.GetNowPlaying() ?? movieAppNowPlaying;
+        movieAppTheatresNearYou = await this.movieAppService.GetTheatresNearYou() ?? movieAppTheatresNearYou;
     }
 }
