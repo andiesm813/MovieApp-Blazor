@@ -15,7 +15,6 @@
   <ItemGroup>
     <None Update="Shared/MainLayout.razor.css" CssScope="movie-app-scope" />
     <None Update="Pages/Movies.razor.css" CssScope="movies-scope" />
-    <None Update="Pages/MoviesOld.razor.css" CssScope="movies-old-scope" />
     <None Update="Pages/MovieComplex.razor.css" CssScope="movie-complex-scope" />
     <None Update="Pages/MyPurchases.razor.css" CssScope="my-purchases-scope" />
   </ItemGroup>
