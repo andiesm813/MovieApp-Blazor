@@ -12,6 +12,7 @@
     flex-direction: column;
 }
 .group {
+    background-color: #0E050F;
     justify-content: flex-start;
     align-items: stretch;
     align-content: flex-start;
@@ -32,7 +33,6 @@
     align-items: stretch;
     align-content: flex-start;
     position: relative;
-    margin: 0 0 24px;
     min-width: 50px;
     min-height: 320px;
     max-height: 320px;
@@ -69,14 +69,30 @@
     align-content: flex-start;
     gap: 24px;
     position: relative;
-    min-width: 50px;
-    min-height: 50px;
+    padding: 24px 0 0;
+    min-width: auto;
+    min-height: auto;
+    flex-grow: 1;
+    flex-basis: 0;
 }
 .card {
-    width: 320px;
     height: max-content;
     min-width: 320px;
-    flex-shrink: 0;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+.demo-content {
+    border-color: hsla(var(--ig-secondary-200));
+    border-width: 2px;
+    border-style: dashed;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    position: relative;
+    margin: 32px;
+    padding: 48px;
+    min-width: 50px;
+    min-height: 50px;
 }
 .group_5 {
     background-color: #0E050F;
@@ -130,6 +146,20 @@
 .image {
     height: 100%;
 }
+.image_1 {
+    object-fit: cover;
+    margin: 0 32px 0 0;
+    min-width: 0;
+    min-height: 0;
+    max-width: 160px;
+    flex-shrink: 0;
+}
+.text {
+    color: hsla(var(--ig-gray-500));
+    height: max-content;
+    min-width: min-content;
+    max-width: 280px;
+}
 .title {
     margin: 0.0px 0.0px 16px;
     padding: 0.0px;
@@ -141,7 +171,7 @@
     width: 24px;
     height: 24px;
 }
-.text {
+.text_1 {
     margin: 0 0 0 24px;
     height: max-content;
     min-width: min-content;
@@ -176,6 +206,16 @@
 .icon-button::part(base) {
     color: hsla(var(--ig-primary-400));
 }
+.tab-item-content_1 {
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    overflow: auto;
+    position: absolute;
+    height: 100%;
+    min-width: 100%;
+    min-height: 50px;
+}
 .user-input {
     height: max-content;
     min-width: min-content;
@@ -202,9 +242,6 @@
     color: hsla(var(--ig-primary-400));
 }
 .user-input_3::part(base) {
-    color: hsla(var(--ig-primary-400));
-}
-.user-input_4::part(base) {
     color: white;
     background-color: hsla(var(--ig-primary-500));
 }
