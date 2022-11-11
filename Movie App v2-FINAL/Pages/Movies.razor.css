@@ -57,8 +57,7 @@
     min-height: 50px;
 }
 .tabs {
-    min-width: 0;
-    min-height: 0;
+    min-width: auto;
     flex-grow: 1;
     flex-shrink: 0;
 }
