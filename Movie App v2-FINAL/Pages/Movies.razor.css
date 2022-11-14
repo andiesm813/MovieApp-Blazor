@@ -204,16 +204,6 @@
 .icon-button::part(base) {
     color: hsla(var(--ig-primary-400));
 }
-.tab-item-content_1 {
-    justify-content: center;
-    align-items: center;
-    align-content: flex-start;
-    overflow: auto;
-    position: absolute;
-    height: 100%;
-    min-width: 100%;
-    min-height: 50px;
-}
 .user-input {
     height: max-content;
     min-width: min-content;
